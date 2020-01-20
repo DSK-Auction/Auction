@@ -107,6 +107,7 @@ view: mn1_mst {
 
   dimension: member_cd {
     label: "会員CD"
+    primary_key: yes
     type: number
     sql: ${TABLE}.member_cd ;;
   }
