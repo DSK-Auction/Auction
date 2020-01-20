@@ -3,6 +3,7 @@ view: mkrmst {
 
   dimension: maker_cd {
     label: "メーカーCD"
+    primary_key: yes
     type: number
     sql: ${TABLE}.maker_cd ;;
   }
