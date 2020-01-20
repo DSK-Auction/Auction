@@ -69,7 +69,7 @@ explore: maker_info {
 
   #出品情報をjoin
   join: sr2_mst {
-    type: left_outer
+    type: full_outer
     relationship: one_to_many
     sql_on: ${mkrmst.maker_cd} = ${sr2_mst.maker_cd} ;;
   }
