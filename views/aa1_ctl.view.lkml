@@ -23,7 +23,7 @@ view: aa1_ctl {
   dimension: eventday {
     label: "開催日"
     type: number
-    sql: ${TABLE}.eventday ;;
+    sql: CAST(${TABLE}.eventday As timestamp) ;;
   }
 
   dimension: lane_type {
