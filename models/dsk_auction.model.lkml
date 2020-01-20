@@ -95,8 +95,9 @@ explore: auction_info {
 
   #会員基本情報をjoin(最終応札店会員CD)
   join:mn1_mst2 {
+    from: mn1_mst
     type:left_outer
     relationship: many_to_one
-    sql_on: ${sr2_mst.commitstore_member_cd} = ${mn1_mst.member_cd};;
+    sql_on: ${sr2_mst.commitstore_member_cd} = ${mn1_mst2.member_cd};;
   }
 }
