@@ -45,17 +45,18 @@ explore: auction_info {
   }
 
   #会員基本情報をjoin(出品店会員CD)
-  join:mn1_mst {
-    type:left_outer
-    relationship: many_to_one
-    sql_on: ${sr2_mst.store_member_cd} = ${mn1_mst.member_cd};;
-  }
-
-  #会員基本情報をjoin(最終応札店会員CD)
-  join:mn1_mst2 {
+  join:mn1_mst_store {
     from: mn1_mst
     type:left_outer
     relationship: many_to_one
-    sql_on: ${sr2_mst.commitstore_member_cd} = ${mn1_mst2.member_cd};;
+    sql_on: ${sr2_mst.store_member_cd} = ${mn1_mst_store.member_cd};;
+  }
+
+  #会員基本情報をjoin(最終応札店会員CD)
+  join:mn1_mst_commitstore {
+    from: mn1_mst
+    type:left_outer
+    relationship: many_to_one
+    sql_on: ${sr2_mst.commitstore_member_cd} = ${mn1_mst_commitstore.member_cd};;
   }
 }
