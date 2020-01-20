@@ -81,5 +81,8 @@ explore: maker_info {
     sql_on: ${sr2_mst.place_cd} = ${aa1_ctl.place_cd}
        And ${sr2_mst.event_count} = ${aa1_ctl.event_count};;
   }
+}
+explore: test{
+  view_name: Top10Maker
 
 }
