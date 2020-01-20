@@ -1,4 +1,5 @@
 view: mn1_mst {
+  view_label: "会員基本情報"
   sql_table_name: DSK_Auction.MN1MST ;;
 
   dimension: address1 {

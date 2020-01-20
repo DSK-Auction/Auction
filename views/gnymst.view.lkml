@@ -1,4 +1,5 @@
 view: gnymst {
+  view_label: "外部入札"
   sql_table_name: DSK_Auction.GNYMST ;;
 
   dimension: aa_report_sort {

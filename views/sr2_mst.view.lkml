@@ -1,4 +1,5 @@
 view: sr2_mst {
+  view_label: "出品情報"
   sql_table_name: DSK_Auction.SR2MST ;;
 
   dimension: applicable_type {

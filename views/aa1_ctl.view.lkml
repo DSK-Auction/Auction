@@ -1,4 +1,5 @@
 view: aa1_ctl {
+  view_label: "オークションカレンダー"
   sql_table_name: DSK_Auction.AA1CTL ;;
 
   dimension: commission_cd {

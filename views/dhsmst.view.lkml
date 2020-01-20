@@ -1,4 +1,5 @@
 view: dhsmst {
+  view_label: "代表車種"
   sql_table_name: DSK_Auction.DHSMST ;;
 
   dimension: carmodel_cd {

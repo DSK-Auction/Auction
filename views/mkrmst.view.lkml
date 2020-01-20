@@ -1,4 +1,5 @@
 view: mkrmst {
+  view_label: "メーカー"
   sql_table_name: DSK_Auction.MKRMST ;;
 
   dimension: maker_cd {

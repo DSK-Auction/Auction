@@ -1,4 +1,5 @@
 view: kjomst {
+  view_label: "会場"
   sql_table_name: DSK_Auction.KJOMST ;;
 
   dimension: place_cd {
