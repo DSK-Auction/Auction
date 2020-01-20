@@ -672,6 +672,7 @@ view: sr2_mst {
     drill_fields: [detail*]
   }
 
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
