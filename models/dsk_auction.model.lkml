@@ -1,5 +1,5 @@
 connection: "dsk_auction"
-
+#label: "オークションデータ"
 # include all the views
 include: "/views/**/*.view"
 
@@ -61,4 +61,25 @@ explore: auction_info {
     relationship: many_to_one
     sql_on: ${sr2_mst.commitstore_member_cd} = ${mn1_mst_commitstore.member_cd};;
   }
+}
+
+explore: maker_info {
+  label: "（2）メーカー情報"
+  view_name: mkrmst
+
+  #出品情報をjoin
+  join: sr2_mst {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${mkrmst.maker_cd} = ${sr2_mst.maker_cd} ;;
+  }
+
+  #オークションカレンダーをjoin
+  join:aa1_ctl {
+    type:left_outer
+    relationship: many_to_one
+    sql_on: ${sr2_mst.place_cd} = ${aa1_ctl.place_cd}
+       And ${sr2_mst.event_count} = ${aa1_ctl.event_count};;
+  }
+
 }
