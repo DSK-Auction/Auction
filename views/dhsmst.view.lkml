@@ -3,6 +3,7 @@ view: dhsmst {
 
   dimension: carmodel_cd {
     label: "代表車種CD"
+    primary_key: yes
     type: number
     sql: ${TABLE}.carmodel_cd ;;
   }
