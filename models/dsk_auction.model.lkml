@@ -92,7 +92,3 @@ explore: maker_info {
        And ${sr2_mst.event_count} = ${aa1_ctl.event_count};;
   }
 }
-explore: test{
-  view_name: Top10Maker
-
-}
