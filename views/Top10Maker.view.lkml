@@ -4,7 +4,7 @@ view: Top10Maker {
 
 
   derived_table: {
-　  sql: SELECT
+　  sql: SELECT top10
          maker_cd
         ,COUNT(maker_cd) AS maker_count
     FROM SR2MST
@@ -13,7 +13,7 @@ view: Top10Maker {
     AND SR2MST.event_count = AA1CTL.event_count
     WHERE {% parameter period_from %} <= AA1CTL.eventday AND {% parameter period_to %} >= AA1CTL.eventday
     GROUP BY maker_cd
-    ORDER BY 2 desc
+    ORDER BY maker_count desc
   ;;
 　}
 
@@ -29,10 +29,12 @@ view: Top10Maker {
     sql: ${TABLE}.maker_count;;
   }
   parameter: period_from {
+    label: "期間指定(From)"
     type: number
   }
 
   parameter: period_to {
+    label: "期間指定(To)"
     type: number
   }
 
