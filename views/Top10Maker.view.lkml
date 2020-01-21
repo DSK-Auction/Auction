@@ -6,6 +6,7 @@ view: Top10Maker {
         ,COUNT(maker_cd) AS maker_count
     FROM SR2MST
     GROUP BY maker_cd
+    ORDER BY 2 desc
   ;;
 　}
 
