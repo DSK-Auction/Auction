@@ -10,6 +10,12 @@ view: Top10Maker {
   ;;
 　}
 
+ dimension: place_cd {
+   label: "会場CD"
+   type: number
+   sql: ${TABLE}.place_cd ;;
+  }
+
   dimension: maker_cd  {
     label: "メーカーCD"
     type: number
@@ -20,5 +26,13 @@ view: Top10Maker {
     label: "メーカーごと出品数"
     type:number
     sql: ${TABLE}.maker_count;;
+  }
+
+  parameter: period_from {
+    type: number
+  }
+
+  parameter: period_to {
+    type: number
   }
   }

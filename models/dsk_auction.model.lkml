@@ -85,4 +85,10 @@ explore: maker_info {
 explore: test{
   view_name: Top10Maker
 
+#オークションカレンダーをjoin
+  join: aa1_ctl {
+    type:left_outer
+    relationship: many_to_one
+    sql_on: ${Top10Maker.place_cd} = ${aa1_ctl.place_cd};;
+  }
 }
