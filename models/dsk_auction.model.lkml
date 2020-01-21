@@ -69,8 +69,6 @@ explore: auction_info {
     sql_on: ${sr2_mst.maker_cd} = ${Top10Maker.maker_cd} ;;
   }
 
-
-
 }
 
 explore: maker_info {
@@ -83,4 +81,12 @@ explore: maker_info {
     relationship: one_to_many
     sql_on: ${mkrmst.maker_cd} = ${sr2_mst.maker_cd} ;;
   }
+
+  #代表車種をjoin
+  join: dhsmst {
+    type: full_outer
+    relationship:one_to_many
+    sql_on:${mkrmst.maker_cd} = ${dhsmst.maker_cd} ;;
+  }
+
 }
