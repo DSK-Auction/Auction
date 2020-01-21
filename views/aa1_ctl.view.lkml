@@ -28,7 +28,7 @@ view: aa1_ctl {
 
   dimension: eventmonth {
     label: "開催月"
-    type: number
+    type: string
     sql: ROUND(${TABLE}.eventday / 100,0) ;;
   }
 
