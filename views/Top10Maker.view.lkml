@@ -1,13 +1,7 @@
 view: Top10Maker {
   view_label: "上位10のメーカー"
 
-  parameter: period_from {
-    type: number
-  }
 
-  parameter: period_to {
-    type: number
-  }
 
   derived_table: {
 　  sql: SELECT
@@ -34,6 +28,12 @@ view: Top10Maker {
     type:number
     sql: ${TABLE}.maker_count;;
   }
+  parameter: period_from {
+    type: number
+  }
 
+  parameter: period_to {
+    type: number
+  }
 
   }
