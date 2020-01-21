@@ -29,7 +29,7 @@ view: aa1_ctl {
   dimension: eventmonth {
     label: "開催月"
     type: string
-    sql: ROUND(${TABLE}.eventday / 100,0) ;;
+    sql: cast(ROUND(${TABLE}.eventday / 100,0) as string)  ;;
   }
 
   dimension: lane_type {
