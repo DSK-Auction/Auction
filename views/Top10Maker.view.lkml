@@ -6,7 +6,7 @@ view: Top10Maker {
         ,COUNT(maker_cd) AS maker_count
     FROM SR2MST
     INNER JOIN AA1CTL
-    ON SR2MST.maker_cd = AA1MST.maker_cd
+    ON SR2MST.maker_cd = AA1CTL.maker_cd
     GROUP BY maker_cd
     ORDER BY 2 desc
   ;;
