@@ -4,7 +4,7 @@ view: Top10Maker {
 
 
   derived_table: {
-　  sql: SELECT top10
+　  sql: SELECT
          maker_cd
         ,COUNT(maker_cd) AS maker_count
     FROM SR2MST
@@ -14,6 +14,7 @@ view: Top10Maker {
     WHERE {% parameter period_from %} <= AA1CTL.eventday AND {% parameter period_to %} >= AA1CTL.eventday
     GROUP BY maker_cd
     ORDER BY maker_count desc
+    limit 10
   ;;
 　}
 
