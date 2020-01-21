@@ -61,6 +61,16 @@ explore: auction_info {
     relationship: many_to_one
     sql_on: ${sr2_mst.commitstore_member_cd} = ${mn1_mst_commitstore.member_cd};;
   }
+
+  #TOP10メーカーをjoin
+  join:Top10Maker{
+    type: inner
+    relationship: many_to_one
+    sql_on: ${sr2_mst.maker_cd} = ${Top10Maker.maker_cd} ;;
+  }
+
+
+
 }
 
 explore: maker_info {
