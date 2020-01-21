@@ -7,18 +7,13 @@ view: Top10Maker {
     FROM SR2MST
     INNER JOIN AA1CTL
     ON SR2MST.place_cd = AA1CTL.place_cd
+    AND SR2MST.event_count = AA1CTL.event_cd
     GROUP BY maker_cd
     ORDER BY 2 desc
   ;;
 　}
 
- dimension: place_cd {
-   label: "会場CD"
-   type: number
-   sql: ${TABLE}.place_cd ;;
-  }
-
-  dimension: maker_cd  {
+   dimension: maker_cd  {
     label: "メーカーCD"
     type: number
     sql: ${TABLE}.maker_cd ;;
