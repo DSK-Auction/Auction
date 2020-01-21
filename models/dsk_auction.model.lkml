@@ -91,7 +91,7 @@ explore: maker_info {
 
   #オークションカレンダーをjoin
   join: aa1_ctl {
-    type: full_outer
+    type: left_outer
     relationship: many_to_one
     sql_on: ${sr2_mst.place_cd} = ${aa1_ctl.place_cd}
      AND ${sr2_mst.event_count} = ${aa1_ctl.event_count};;

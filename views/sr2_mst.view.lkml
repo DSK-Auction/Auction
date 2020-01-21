@@ -610,7 +610,6 @@ view: sr2_mst {
 
   dimension: place_cd {
     label: "会場CD"
-    type: number
     sql: ${TABLE}.place_cd ;;
   }
 
