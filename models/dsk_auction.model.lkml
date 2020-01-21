@@ -61,6 +61,16 @@ explore: auction_info {
     relationship: many_to_one
     sql_on: ${sr2_mst.commitstore_member_cd} = ${mn1_mst_commitstore.member_cd};;
   }
+
+  #TOP10メーカーをjoin
+  join:Top10Maker{
+    type: inner
+    relationship: many_to_one
+    sql_on: ${sr2_mst.maker_cd} = ${Top10Maker.maker_cd} ;;
+  }
+
+
+
 }
 
 explore: maker_info {
@@ -72,23 +82,5 @@ explore: maker_info {
     type: full_outer
     relationship: one_to_many
     sql_on: ${mkrmst.maker_cd} = ${sr2_mst.maker_cd} ;;
-  }
-
-  #オークションカレンダーをjoin
-  join:aa1_ctl {
-    type:left_outer
-    relationship: many_to_one
-    sql_on: ${sr2_mst.place_cd} = ${aa1_ctl.place_cd}
-       And ${sr2_mst.event_count} = ${aa1_ctl.event_count};;
-  }
-}
-explore: test{
-  view_name: Top10Maker
-
-#オークションカレンダーをjoin
-  join: aa1_ctl {
-    type:left_outer
-    relationship: many_to_one
-    sql_on: ${Top10Maker.place_cd} = ${aa1_ctl.place_cd};;
   }
 }
