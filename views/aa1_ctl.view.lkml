@@ -26,6 +26,12 @@ view: aa1_ctl {
     sql: ${TABLE}.eventday ;;
   }
 
+  dimension: eventmonth {
+    label: "開催月"
+    type: number
+    sql: ROUND(${TABLE}.eventday / 100,0) ;;
+  }
+
   dimension: lane_type {
     label: "レーン数"
     type: number
