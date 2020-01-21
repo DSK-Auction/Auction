@@ -94,6 +94,6 @@ explore: maker_info {
     type: full_outer
     relationship: many_to_one
     sql_on: ${sr2_mst.place_cd} = ${aa1_ctl.place_cd}
-     AND ${sr2_mst.event_count = ${aa1_ctl.event_count};;
+     AND ${sr2_mst.event_count} = ${aa1_ctl.event_count};;
   }
 }
