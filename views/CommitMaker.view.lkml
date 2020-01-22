@@ -1,7 +1,8 @@
-view: CommitMaker {
-  view_label: "成約メーカー情報"
+view: MakerCommit_info {
+  view_label: "メーカー成約情報"
   derived_table: {
     sql: select a.maker_cd,
+       count(*) as commit_count,
        avg(a.auction_time) as average_time,
        max(a.commit_price) as max_price,
        min(a.commit_price) as min_price,
@@ -14,7 +15,7 @@ order by maker_cd
   }
 
   measure: count {
-    label: "成約台数"
+    label: "成約メーカー数"
     type: count
     drill_fields: [detail*]
   }
@@ -23,6 +24,12 @@ order by maker_cd
     label: "メーカーCD"
     type: number
     sql: ${TABLE}.maker_cd ;;
+  }
+
+  dimension: commit_count{
+    label: "メーカー成約数"
+    type: number
+    sql: ${TABLE}.commit_count ;;
   }
 
   dimension: average_time {
