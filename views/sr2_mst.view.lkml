@@ -2,13 +2,13 @@ view: sr2_mst {
   view_label: "出品情報"
   sql_table_name: DSK_Auction.SR2MST ;;
 
-#  dimension: primary_key {
-#    label: "プライマリキー"
-#    type: string
-#    primary_key: yes
-#    hidden: no
-#    sql:concat(format("%02d",${TABLE}.place_cd),format("%04d",${TABLE}.event_count),format("%05d",${TABLE}.exhibit_no),format("%010d",${TABLE}.control_no)) ;;
-#  }
+  dimension: primary_key {
+    label: "プライマリキー"
+    type: string
+    primary_key: yes
+    hidden: no
+    sql:concat(format("%02d",${TABLE}.place_cd),format("%04d",${TABLE}.event_count),format("%05d",${TABLE}.exhibit_no),format("%010d",${TABLE}.control_no)) ;;
+  }
 
   dimension: applicable_type {
     label: "売切区分"
@@ -618,6 +618,7 @@ view: sr2_mst {
 
   dimension: place_cd {
     label: "会場CD"
+    type: number
     sql: ${TABLE}.place_cd ;;
   }
 
@@ -802,24 +803,24 @@ view: sr2_mst {
   }
 
   measure: count {
-#    label: "合計出品数"
+    label: "合計出品数"
     type: count
     drill_fields: [detail*]
   }
 
-#  measure: summary_commit_price {
-#    label: "合計最終応札価格"
-#    type: sum
-#    value_format_name: decimal_0
-#    sql: ${commit_price} ;;
-#  }
+  measure: summary_commit_price {
+    label: "合計最終応札価格"
+    type: sum
+    value_format_name: decimal_0
+    sql: ${commit_price} ;;
+  }
 
-#  measure: average_commit_price {
-#    label: "平均最終応札価格"
-#    type: average
-#    value_format_name: decimal_0
-#    sql: ${commit_price} ;;
-#  }
+  measure: average_commit_price {
+    label: "平均最終応札価格"
+    type: average
+    value_format_name: decimal_0
+    sql: ${commit_price} ;;
+  }
 
   # ----- Sets of fields for drilling ------
   set: detail {
