@@ -35,6 +35,7 @@ order by maker_cd
   dimension: average_time {
     label: "平均オークション所要時間"
     type: number
+    value_format_name: decimal_2
     sql: ${TABLE}.average_time ;;
   }
 
@@ -53,6 +54,7 @@ order by maker_cd
   dimension: avarage_price {
     label: "平均落札金額"
     type: number
+    value_format_name: decimal_0
     sql: ${TABLE}.avarage_price ;;
   }
 
