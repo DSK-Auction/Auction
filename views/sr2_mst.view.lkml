@@ -13,7 +13,11 @@ view: sr2_mst {
   dimension: applicable_type {
     label: "売切区分"
     type: number
-    sql: ${TABLE}.applicable_type ;;
+    sql:
+      CASE
+        WHEN ${TABLE}.applicable_type = 0 THEN '非売切'
+        WHEN ${TABLE}.applicable_type = 1 THEN '売切'
+      END ;;
   }
 
   dimension: auction_count {
