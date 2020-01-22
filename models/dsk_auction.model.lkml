@@ -105,6 +105,7 @@ explore: member_info {
   #出品情報をjoin(出品店会員CD)
   join: sr2_mst_store {
     from: sr2_mst
+    view_label: "出品店会員"
     type: left_outer
     relationship: one_to_many
     sql_on: ${mn1_mst.member_cd} = ${sr2_mst_store.store_member_cd}
@@ -114,6 +115,7 @@ explore: member_info {
   #出品情報をjoin(最終応札店会員CD)
   join: sr2_mst_commitstore {
     from: sr2_mst
+    view_label: "最終応札店会員"
     type: left_outer
     relationship: one_to_many
     sql_on: ${mn1_mst.member_cd} = ${sr2_mst_commitstore.commitstore_member_cd}
