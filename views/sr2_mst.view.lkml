@@ -822,6 +822,20 @@ view: sr2_mst {
     sql: ${commit_price} ;;
   }
 
+  dimension: vehicle_age {
+    label: "車齢"
+    type: number
+    value_format_name: decimal_0
+    sql: ${openday_year} - ${nenshiki_ad} + 1 ;;
+  }
+
+  measure: average_vehicle_age {
+    label: "平均車齢"
+    type: average
+    value_format_name: decimal_0
+    sql: ${vehicle_age} ;;
+  }
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
