@@ -17,7 +17,7 @@ order by maker_cd
   measure: count {
     label: "成約メーカー数"
     type: count
-    drill_fields: [detail*]
+#    drill_fields: [detail*]
   }
 
   dimension: maker_cd {
@@ -58,13 +58,13 @@ order by maker_cd
     sql: ${TABLE}.avarage_price ;;
   }
 
-  set: detail {
-    fields: [
-      maker_cd,
-      average_time,
-      max_price,
-      min_price,
-      avarage_price
-    ]
-  }
+#  set: detail {
+#    fields: [
+#      maker_cd,
+#      average_time,
+#      max_price,
+#      min_price,
+#      avarage_price
+#    ]
+#  }
 }
