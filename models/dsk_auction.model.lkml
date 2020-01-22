@@ -129,12 +129,4 @@ explore: member_info {
      AND ${sr2_mst_commitstore.place_cd} = ${aa1_ctl.place_cd}
      AND ${sr2_mst_commitstore.event_count} = ${aa1_ctl.event_count};;
   }
-
-#TOP10メーカーをjoin
-  join: Top10Maker{
-    type: inner
-    relationship: many_to_one
-    sql_on: ${sr2_mst_store.maker_cd} = ${Top10Maker.maker_cd}
-     AND ${sr2_mst_commitstore.maker_cd} = ${Top10Maker.maker_cd};;
-  }
 }
