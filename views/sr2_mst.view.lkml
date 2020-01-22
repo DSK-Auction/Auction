@@ -794,10 +794,22 @@ view: sr2_mst {
   }
 
   measure: count {
+    label: "合計出品数"
     type: count
     drill_fields: [detail*]
   }
 
+  measure: summary_commit_price {
+    label: "合計最終応札価格"
+    type: sum
+    sql: ${commit_price} ;;
+  }
+
+  measure: average_commit_price {
+    label: "平均最終応札価格"
+    type: average
+    sql: ${commit_price} ;;
+  }
 
   # ----- Sets of fields for drilling ------
   set: detail {
