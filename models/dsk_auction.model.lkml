@@ -132,7 +132,7 @@ explore: member_info {
 
 #TOP10メーカーをjoin
   join: Top10Maker{
-    type: left_outer
+    type: inner
     relationship: many_to_one
     sql_on: ${sr2_mst_store.maker_cd} = ${Top10Maker.maker_cd}
      AND ${sr2_mst_commitstore.maker_cd} = ${Top10Maker.maker_cd};;
