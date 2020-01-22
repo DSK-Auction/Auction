@@ -802,12 +802,14 @@ view: sr2_mst {
   measure: summary_commit_price {
     label: "合計最終応札価格"
     type: sum
+    value_format_name: decimal_0
     sql: ${commit_price} ;;
   }
 
   measure: average_commit_price {
     label: "平均最終応札価格"
     type: average
+    value_format_name: decimal_0
     sql: ${commit_price} ;;
   }
 
