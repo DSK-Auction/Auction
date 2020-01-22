@@ -1,7 +1,7 @@
 view: sr2_mst {
   view_label: "出品情報"
   sql_table_name: DSK_Auction.SR2MST ;;
-#ここからファイン
+
   dimension: primary_key {
     label: "プライマリキー"
     type: string
@@ -9,7 +9,7 @@ view: sr2_mst {
     hidden: no
     sql:concat(format("%02d",${TABLE}.place_cd),format("%04d",${TABLE}.event_count),format("%05d",${TABLE}.exhibit_no),format("%010d",${TABLE}.control_no)) ;;
   }
-#ここまでファイン
+
   dimension: applicable_type {
     label: "売切区分"
     type: number
