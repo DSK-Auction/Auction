@@ -77,7 +77,7 @@ explore: maker_info {
 
 #メーカー成約情報をjoin
 join: MakerCommit_info {
-  type: left_outer
+  type: inner
   relationship: one_to_one
   sql_on: ${MakerCommit_info.maker_cd} = ${mkrmst.maker_cd};;
 }
