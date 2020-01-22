@@ -108,8 +108,7 @@ explore: member_info {
     view_label: "出品店会員"
     type: left_outer
     relationship: one_to_many
-    sql_on: ${mn1_mst.member_cd} = ${sr2_mst_store.store_member_cd}
-      ;;
+    sql_on: ${mn1_mst.member_cd} = ${sr2_mst_store.store_member_cd};;
   }
 
   #出品情報をjoin(最終応札店会員CD)
@@ -118,8 +117,7 @@ explore: member_info {
     view_label: "最終応札店会員"
     type: left_outer
     relationship: one_to_many
-    sql_on: ${mn1_mst.member_cd} = ${sr2_mst_commitstore.commitstore_member_cd}
-      ;;
+    sql_on: ${mn1_mst.member_cd} = ${sr2_mst_commitstore.commitstore_member_cd};;
   }
 
 #オークションカレンダーをjoin
@@ -129,7 +127,14 @@ explore: member_info {
     sql_on: ${sr2_mst_store.place_cd} = ${aa1_ctl.place_cd}
      AND ${sr2_mst_store.event_count} = ${aa1_ctl.event_count}
      AND ${sr2_mst_commitstore.place_cd} = ${aa1_ctl.place_cd}
-     AND ${sr2_mst_commitstore.event_count} = ${aa1_ctl.event_count}
-    ;;
+     AND ${sr2_mst_commitstore.event_count} = ${aa1_ctl.event_count};;
+  }
+
+#TOP10メーカーをjoin
+  join: Top10Maker{
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${sr2_mst_store.maker_cd} = ${Top10Maker.maker_cd}
+     AND ${sr2_mst_commitstore.maker_cd} = ${Top10Maker.maker_cd};;
   }
 }
