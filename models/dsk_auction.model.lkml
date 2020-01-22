@@ -100,14 +100,23 @@ explore: maker_info {
 
 explore: member_info {
   label: "（3）会員情報"
-  view_name:mn1_mst
+  view_name: mn1_mst
 
-  #出品情報をjoin
-  join: sr2_mst {
-    type:left_outer
+  #出品情報をjoin(出品店会員CD)
+  join: sr2_mst_store {
+    from: sr2_mst
+    type: left_outer
     relationship: one_to_many
-    sql_on: ${mn1_mst.member_cd} = ${sr2_mst.store_member_cd}
-     AND ${mn1_mst.member_cd} = ${sr2_mst.commitstore_member_cd}
+    sql_on: ${mn1_mst.member_cd} = ${sr2_mst_store.store_member_cd}
+      ;;
+  }
+
+  #出品情報をjoin(最終応札店会員CD)
+  join: sr2_mst_commitstore {
+    from: sr2_mst
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${mn1_mst.member_cd} = ${sr2_mst_commitstore.commitstore_member_cd}
       ;;
   }
 }
