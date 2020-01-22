@@ -104,7 +104,6 @@ explore: member_info {
 
   #出品情報をjoin
   join: sr2_mst {
-    from: sr2_mst
     type:left_outer
     relationship: one_to_many
     sql_on: ${mn1_mst.member_cd} = ${sr2_mst.store_member_cd}
