@@ -107,7 +107,7 @@ explore: member_info {
     type:left_outer
     relationship: one_to_many
     sql_on: ${mn1_mst.member_cd} = ${sr2_mst.store_member_cd}
-     AND ${mn1_mst.member_cd} = ${sr2_mst.commitstore_member_cd}}
+     AND ${mn1_mst.member_cd} = ${sr2_mst.commitstore_member_cd}
       ;;
   }
 }
