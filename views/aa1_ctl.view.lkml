@@ -8,6 +8,14 @@ view: aa1_ctl {
     sql: ${TABLE}.commission_cd ;;
   }
 
+  dimension: primary_key {
+    label: "プライマリキー"
+    type: string
+    primary_key: yes
+    hidden: yes
+    sql:concat(format("%02d",${TABLE}.place_cd),format("%04d",${TABLE}.event_count)) ;;
+  }
+
   dimension: event_count {
     label: "開催回数"
     type: number

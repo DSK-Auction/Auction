@@ -6,7 +6,7 @@ view: sr2_mst {
     label: "プライマリキー"
     type: string
     primary_key: yes
-    hidden: no
+    hidden: yes
     sql:concat(format("%02d",${TABLE}.place_cd),format("%04d",${TABLE}.event_count),format("%05d",${TABLE}.exhibit_no),format("%010d",${TABLE}.control_no)) ;;
   }
 
