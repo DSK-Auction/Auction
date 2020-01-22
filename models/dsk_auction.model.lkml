@@ -121,4 +121,15 @@ explore: member_info {
     sql_on: ${mn1_mst.member_cd} = ${sr2_mst_commitstore.commitstore_member_cd}
       ;;
   }
+
+#オークションカレンダーをjoin
+  join: aa1_ctl {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${sr2_mst_store.place_cd} = ${aa1_ctl.place_cd}
+     AND ${sr2_mst_store.event_count} = ${aa1_ctl.event_count}
+     AND ${sr2_mst_commitstore.place_cd} = ${aa1_ctl.place_cd}
+     AND ${sr2_mst_commitstore.event_count} = ${aa1_ctl.event_count}
+    ;;
+  }
 }
