@@ -131,9 +131,9 @@ explore: member_info {
   join: aa1_ctl {
     type: left_outer
     relationship: many_to_one
-    sql_on: ${sr2_mst_store.place_cd} = ${aa1_ctl.place_cd}
-     AND ${sr2_mst_store.event_count} = ${aa1_ctl.event_count}
-     OR ${sr2_mst_commitstore.place_cd} = ${aa1_ctl.place_cd}
-     AND ${sr2_mst_commitstore.event_count} = ${aa1_ctl.event_count};;
+    sql_on: (${sr2_mst_store.place_cd} = ${aa1_ctl.place_cd}
+     AND ${sr2_mst_store.event_count} = ${aa1_ctl.event_count})
+     OR (${sr2_mst_commitstore.place_cd} = ${aa1_ctl.place_cd}
+     AND ${sr2_mst_commitstore.event_count} = ${aa1_ctl.event_count});;
   }
 }
