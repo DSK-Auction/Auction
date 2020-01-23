@@ -40,6 +40,12 @@ view: aa1_ctl {
     sql: cast(ROUND(${TABLE}.eventday / 100,0) as string)  ;;
   }
 
+  dimension: eventyear{
+    label: "開催年"
+    type: string
+    sql: cast(ROUND(${TABLE}.eventmonth} / 100, 0) as string) ;;
+　}
+
   dimension: lane_type {
     label: "レーン数"
     type: number
