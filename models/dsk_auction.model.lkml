@@ -146,4 +146,24 @@ join: aa1_ctl_commitstore {
   sql_on: ${sr2_mst_commitstore.place_cd} = ${aa1_ctl_commitstore.place_cd}
   AND ${sr2_mst_commitstore.event_count} = ${aa1_ctl_commitstore.event_count};;
 }
+
+#外部入札をjoin(出品店会員CD)
+join: gnymst_store {
+    from: gnymst
+    view_label: "外部入札（出品）"
+    type:left_outer
+    relationship: many_to_one
+    sql_on: ${sr2_mst_store.place_cd} = ${gnymst_store.place_cd}
+      AND ${sr2_mst_store.nyusatsu_cd} = ${gnymst_store.nyusatsu_cd};;
+}
+
+#外部入札をjoin(最終応札店会員CD)
+join: gnymst_commitstore {
+  from: gnymst
+  view_label: "外部入札（最終応札）"
+  type: left_outer
+  relationship: many_to_one
+  sql_on: ${sr2_mst_commitstore.place_cd} = ${gnymst_commitstore.place_cd}
+    AND ${sr2_mst_commitstore.nyusatsu_cd} = ${gnymst_commitstore.nyusatsu_cd};;
+}
 }
