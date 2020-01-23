@@ -112,7 +112,7 @@ explore: member_info {
   #出品情報をjoin(出品店会員CD)
   join: sr2_mst_store {
     from: sr2_mst
-    view_label: "出品店会員"
+    view_label: "出品情報（出品）"
     type: left_outer
     relationship: one_to_many
     sql_on: ${mn1_mst.member_cd} = ${sr2_mst_store.store_member_cd};;
@@ -121,19 +121,29 @@ explore: member_info {
   #出品情報をjoin(最終応札店会員CD)
   join: sr2_mst_commitstore {
     from: sr2_mst
-    view_label: "最終応札店会員"
+    view_label: "出品情報（最終応札）"
     type: left_outer
     relationship: one_to_many
     sql_on: ${mn1_mst.member_cd} = ${sr2_mst_commitstore.commitstore_member_cd};;
   }
 
-#オークションカレンダーをjoin
-  join: aa1_ctl {
+#オークションカレンダーをjoin(出品店会員CD)
+  join: aa1_ctl_store {
+    from: aa1_ctl
+    view_label: "オークションカレンダー（出品）"
     type: left_outer
     relationship: many_to_one
-    sql_on: ${sr2_mst_store.place_cd} = ${aa1_ctl.place_cd}
-     AND ${sr2_mst_store.event_count} = ${aa1_ctl.event_count}
-     AND ${sr2_mst_commitstore.place_cd} = ${aa1_ctl.place_cd}
-     AND ${sr2_mst_commitstore.event_count} = ${aa1_ctl.event_count};;
+    sql_on: ${sr2_mst_store.place_cd} = ${aa1_ctl_store.place_cd}
+     AND ${sr2_mst_store.event_count} = ${aa1_ctl_store.event_count};;
   }
+
+#オークションカレンダーをjoin(最終応札店会員CD)
+join: aa1_ctl_commitstore {
+  from: aa1_ctl
+  view_label: "オークションカレンダー（最終応札）"
+  type: left_outer
+  relationship: many_to_one
+  sql_on: ${sr2_mst_commitstore.place_cd} = ${aa1_ctl_commitstore.place_cd}
+  AND ${sr2_mst_commitstore.event_count} = ${aa1_ctl_commitstore.event_count};;
+}
 }
