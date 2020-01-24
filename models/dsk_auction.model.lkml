@@ -69,6 +69,14 @@ explore: auction_info {
     sql_on: ${sr2_mst.maker_cd} = ${Top10Maker.maker_cd} ;;
   }
 
+  #TOP10車種をjoin
+  join:top10carmodel{
+    type: inner
+    relationship: many_to_one
+    sql_on: ${sr2_mst.carmodel_cd} = ${top10carmodel.carmodel_cd} ;;
+  }
+
+
 }
 
 explore: maker_info {
