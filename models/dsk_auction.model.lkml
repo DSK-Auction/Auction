@@ -175,3 +175,17 @@ join: gnymst_commitstore {
     AND ${sr2_mst_commitstore.nyusatsu_cd} = ${gnymst_commitstore.nyusatsu_cd};;
 }
 }
+
+explore: cancel_info {
+  label: "（4）キャンセル情報"
+  view_name: cancelcount
+
+#会員情報をjoin
+  join: mn1_mst {
+    type: left_outer
+    relationship: one_to_one
+    sql_on: ${cancelcount.member_cd} = ${mn1_mst.member_cd} ;;
+
+  }
+
+}
