@@ -836,8 +836,8 @@ view: sr2_mst {
     sql: ${vehicle_age} ;;
   }
 
-  measure: commitcanceled_count {
-    label: "落札キャンセル商品数"
+  measure: canceled_count {
+    label: "キャンセル商品数"
     type: count_distinct
     sql: ${primary_key} ;;
     filters: {
