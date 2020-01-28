@@ -838,7 +838,8 @@ view: sr2_mst {
 
   measure: canceled_count{
     label: "キャンセル数"
-    type:count
+    type:count_distinct
+    sql: ${primary_key} ;;
     filters:{
       field:decision_type2
       value: "4"
