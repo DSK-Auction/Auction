@@ -836,12 +836,12 @@ view: sr2_mst {
     sql: ${vehicle_age} ;;
   }
 
-  measure: canceled_count{
-    label: "キャンセル数"
-    type:count_distinct
+  measure: commitcanceled_count {
+    label: "落札キャンセル商品数"
+    type: count_distinct
     sql: ${primary_key} ;;
-    filters:{
-      field:decision_type2
+    filters: {
+      field: decision_type2
       value: "4"
     }
   }
@@ -850,7 +850,7 @@ view: sr2_mst {
     label: "キャンセル率"
     type:number
     value_format_name:percent_1
-    sql:1.0*${canceled_count}/NULLIF(${count},0);;
+    sql:1.0*${commitcanceled_count}/NULLIF(${count},0);;
   }
 
 
