@@ -836,7 +836,7 @@ view: sr2_mst {
     sql: ${vehicle_age} ;;
   }
 
-  measure: count_canceled{
+  measure: canceled_count{
     label: "キャンセル数"
     type:count
     filters:{
@@ -849,7 +849,7 @@ view: sr2_mst {
     label: "キャンセル率"
     type:number
     value_format_name:percent_1
-    sql:1.0*${count_canceled}/NULLIF(${count},0);;
+    sql:1.0*${canceled_count}/NULLIF(${count},0);;
   }
 
 
