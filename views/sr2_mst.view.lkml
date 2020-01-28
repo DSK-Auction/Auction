@@ -836,6 +836,23 @@ view: sr2_mst {
     sql: ${vehicle_age} ;;
   }
 
+  measure: count_canceled{
+    label: "キャンセル数"
+    type:count
+    filters:{
+      field:decision_type2
+      value: "4"
+    }
+  }
+
+  measure: parcentage_canceled{
+    label: "キャンセル率"
+    type:number
+    value_format_name:percent_1
+    sql:1.0*${count_canceled}/NULLIF(${count},0);;
+  }
+
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
