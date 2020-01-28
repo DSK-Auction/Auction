@@ -849,7 +849,7 @@ view: sr2_mst {
   measure: parcentage_canceled{
     label: "キャンセル率"
     type:number
-    value_format_name:percent_1
+    value_format_name:percent_2
     sql:1.0*${commitcanceled_count}/NULLIF(${count},0);;
   }
 
